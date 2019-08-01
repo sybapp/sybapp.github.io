@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="孙远博, sybapp@qq.com"><title>本站搭建过程 · 不将就 | 一个计算机小白的博客</title><meta name="description" content="前言今天是2018年的 5 月 20 号，身为单身狗的我自然无所事是。于是出于无聊搭建了这个博客。
+概要这个博客托管与Github Page上，使用的是Github Page + Hexo的方式搭建。
+1. 准备工作
+Windows10
+Node.js
+Github
+Git
+Hexo
+
+2. 新建G"><meta name="keywords" content="Hexo, HTML, CSS, Android, Linux, WEB"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">不将就 | 一个计算机小白的博客</a></h3><div class="description"><p>一个计算机小白的博客 C / Python / Android / Linux / WEB</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/ansgsy"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/sybapp"><i class="fa fa-github"></i></a></li></ul><div class="footer"><div class="by_farbox"><a href="https://sybapp.tk/" target="_blank">&#169 2018 不将就 All rights reserved. &#160;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>本站搭建过程</a></h3></div><div class="post-content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天是2018年的 5 月 20 号，身为单身狗的我自然无所事是。于是出于无聊搭建了这个博客。</p>
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>这个博客托管与<strong>Github Page</strong>上，使用的是<strong>Github Page + Hexo</strong>的方式搭建。</p>
+<h1 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h1><ul>
+<li>Windows10</li>
+<li>Node.js</li>
+<li>Github</li>
+<li>Git</li>
+<li>Hexo</li>
+</ul>
+<h1 id="2-新建Github-Page"><a href="#2-新建Github-Page" class="headerlink" title="2. 新建Github Page"></a>2. 新建Github Page</h1><h2 id="2-1-创建仓库"><a href="#2-1-创建仓库" class="headerlink" title="2.1 创建仓库"></a>2.1 创建仓库</h2><p>新建一个名为[你的用户名].github.io的仓库，比如说，我的github用户名是sybapp，那么你就新建sybapp.github.io的仓库（必须是你的用户名，其它名称无效）</p>
+<p><img src="https://t1.aixinxi.net/o_1cdttidfspa7jf3107h1uestd5a.png-w.jpg" alt></p>
+<p>将来你的网站访问地址就是<strong><a href="http://sybapp.github.io" target="_blank" rel="noopener">http://sybapp.github.io</a></strong>.</p>
+<h2 id="2-2-绑定域名"><a href="#2-2-绑定域名" class="headerlink" title="2.2 绑定域名"></a>2.2 绑定域名</h2><p>我用的是由 <a href="http://www.freenom.com" target="_blank" rel="noopener">freenom</a> 提供的免费域名（学生党没钱，包括用Github Page搭建博客主要是不用花钱买服务器）。</p>
+<p>如果使用 freenom 的免费域名推荐使用Dnspod进行 CDN 加速，不然速度很慢。</p>
+<p>在 freenom 的域名管理处进行如下设置：<br><img src="https://t1.aixinxi.net/o_1cdtun0mu6hb1i0ghg9st56tua.png-w.jpg" alt></p>
+<p>在 Dnspod 添加你在 freenom 注册的域名，添加 CNAME 解析，记录为你注册的仓库地址，比如我的是 sybapp.github.io 。</p>
+<p>在 Github 的仓库设置中将域名定向到你注册的域名。<br><img src="https://t1.aixinxi.net/o_1cdu2qm5l1ssj1v3kcohs5n1csqa.png-w.jpg" alt></p>
+<p>测试域名是否可以正常访问。</p>
+<h2 id="2-3-配置SSH-key"><a href="#2-3-配置SSH-key" class="headerlink" title="2.3 配置SSH key"></a>2.3 配置SSH key</h2><p>为什么要配置这个呢？因为你提交代码肯定要拥有你的Github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用SSH key来解决本地和服务器的连接问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/. ssh //检查本机已存在的ssh密钥</span><br></pre></td></tr></table></figure>
+<p>如果提示：<code>No such file or directory</code> 说明你是第一次使用git.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"邮件地址"</span></span><br></pre></td></tr></table></figure>
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key.</p>
+<p>将刚复制的内容粘贴到key那里，title随便填，保存。</p>
+<h2 id="2-4-测试SSH"><a href="#2-4-测试SSH" class="headerlink" title="2.4 测试SSH"></a>2.4 测试SSH</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span><br></pre></td></tr></table></figure>
+<p>如果提示 <code>Are you sure you want to continue connecting (yes/no)?</code>，输入yes，然后会看到：</p>
+<p><code>Hi liuxianan! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p>看到这个信息说明SSH已配置成功！</p>
+<p>此时你还需要配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name // 你的github用户名，非昵称</span><br><span class="line">$ git config --global user.email // 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-安装Hexo并配置主题"><a href="#3-安装Hexo并配置主题" class="headerlink" title="3. 安装Hexo并配置主题"></a>3. 安装Hexo并配置主题</h1><p>在电脑上你可以方便找到的地方新建文件夹，名称随意，比如我的直接就是 /sybappblog ,主要用于配置用户文件。</p>
+<p>如果你安装了 Git ，直接在文件夹点击鼠标右键选择 Git Bash Here 进入 git 的命令行。</p>
+<h2 id="3-1-安装Hexo"><a href="#3-1-安装Hexo" class="headerlink" title="3.1 安装Hexo"></a>3.1 安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>等待安装完成。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo v</span><br></pre></td></tr></table></figure>
+<p>可查看 Hexo 的版本</p>
+<p><img src="https://t1.aixinxi.net/o_1cdu2ro8713m1a9k1bos1gai1qmta.png-w.jpg" alt></p>
+<h2 id="3-2-初始化-Hexo"><a href="#3-2-初始化-Hexo" class="headerlink" title="3.2 初始化 Hexo"></a>3.2 初始化 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init //初始化hexo环境</span><br></pre></td></tr></table></figure>
+<p>Hexo会自动下载一些文件到这个目录包括node_modules，目录结构如下图：</p>
+<p><img src="https://t1.aixinxi.net/o_1cdu39kr519u91ods9eslla16dea.png-w.jpg" alt></p>
+<p>依次执行下面三个命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install //安装npm依赖包</span><br><span class="line">$ hexo g //生成静态页面</span><br><span class="line">$ hexo s //生成本地服务</span><br></pre></td></tr></table></figure>
+<p><img src="https://t1.aixinxi.net/o_1cdu2ssgg1cq813bf1prcnttl3ua.png-w.jpg" alt></p>
+<p>这时候打开浏览器输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 即可访问到自己的博客。</p>
+<p><img src="https://t1.aixinxi.net/o_1cdu2tq881usf1fdlodf1ahu8d6a.png-w.jpg" alt></p>
+<h2 id="3-3-修改主题"><a href="#3-3-修改主题" class="headerlink" title="3.3 修改主题"></a>3.3 修改主题</h2><p>默认主题太单调，而且不好看，所以我们可以安装第三方主题.</p>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">官方主题</a></p>
+<p>我是用的是 <a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank" rel="noopener">Anatole</a></p>
+<h3 id="3-3-1-安装和更新主题"><a href="#3-3-1-安装和更新主题" class="headerlink" title="3.3.1 安装和更新主题"></a>3.3.1 安装和更新主题</h3><p>注意：安装完成后需要启用主题，请编辑 Hexo 部署目录内的 <code>_config.yml</code>, 找到 theme: 并把那一行改成 theme: anatole。</p>
+<p>命令行下进入 Hexo 部署目录下的 <code>/themes</code> 文件夹内，使用以下命令即可安装该主题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Ben02/hexo-theme-Anatole.git themes/anatole</span><br></pre></td></tr></table></figure>
+<p>更新时使用以下命令（在 <code>/themes</code> 内）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> anatole</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-2-安装和配置必要插件"><a href="#3-3-2-安装和配置必要插件" class="headerlink" title="3.3.2 安装和配置必要插件"></a>3.3.2 安装和配置必要插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save hexo-render-pug hexo-generator-archive hexo-generator-tag hexo-generator-index hexo-generator-category</span><br></pre></td></tr></table></figure>
+<p>编辑 Hexo 部署目录内的 <code>_config.yml</code>，新增以下条目（若已有类似条目请自行修改）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">archive_generator:</span><br><span class="line">    per_page: 0  </span><br><span class="line">    yearly: false</span><br><span class="line">    monthly: false</span><br><span class="line">    daily: false</span><br></pre></td></tr></table></figure></p>
+<p><code>per_page: 0</code> 处指定文章归档页面的条目数，0 为无限制。</p>
+<h3 id="3-3-3-设置博客信息"><a href="#3-3-3-设置博客信息" class="headerlink" title="3.3.3 设置博客信息"></a>3.3.3 设置博客信息</h3><p>主题文件夹内有一个<code>_config.sample.yml</code> 文件，里面列出了主题支持的所有设置项，可以参考新建一个 <code>_config.yml</code> 文件并进行自定义配置。</p>
+<p>示例配置：</p>
+<blockquote>
+<p>keywords: Hexo,HTML,CSS,android,Linux  # 博客的关键词<br>author: Author Name,<a href="mailto:name@example.com" target="_blank" rel="noopener">name@example.com</a>  # 博客作者和联系邮箱（目前 Google 可以识别 and email<br>description: Nothing lasts forever.  # 博客描述，会显示在侧栏的 LOGO 下面<br>avatar: /images/favicon.png  # 右上角的头像，可用绝对路径引入他站资源</p>
+</blockquote>
+<h3 id="3-3-4-设置社交信息"><a href="#3-3-4-设置社交信息" class="headerlink" title="3.3.4 设置社交信息"></a>3.3.4 设置社交信息</h3><p>主题文件夹内有一个 <code>_config.sample.yml</code> 文件，里面列出了主题支持的所有设置项，可以参考新建一个 <code>_config.yml</code> 文件并进行自定义配置。</p>
+<p>示例配置：</p>
+<blockquote>
+<p>rss:<br>weibo:<br>github:<br>twitter:<br>instagram:<br>facebook: </p>
+</blockquote>
+<p>以上只需填入个人主页地址的后缀:<br>如 <a href="http://weibo.com/ansgsy" target="_blank" rel="noopener">http://weibo.com/ansgsy</a> 只需填入 ansgsy。<br>rss: 项填博客的订阅地址。<br>以上项目不填不会出现在前台。</p>
+<h1 id="4-测试运行"><a href="#4-测试运行" class="headerlink" title="4. 测试运行"></a>4. 测试运行</h1><p>以上都配置好之后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>这时候打开浏览器输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 即可访问到自己的博客。</p>
+<p><img src="https://t1.aixinxi.net/o_1cdu2vundop1mjk1ettf60iuda.png-w.jpg" alt></p>
+<ol>
+<li>列表项</li>
+</ol>
+<h1 id="5-将本地博客部署到GitHub上"><a href="#5-将本地博客部署到GitHub上" class="headerlink" title="5. 将本地博客部署到GitHub上"></a>5. 将本地博客部署到GitHub上</h1><p>如果没有问题，那么我们就要把它部署到Github了。</p>
+<p>对本地博客根目录下的 <code>_config.yml</code> 进行编辑，配置其中关于 <code>deploy</code> 的部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:liuxianan/liuxianan.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>在 GitBash 中执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>就可以通过在浏览器中访问 <a href="http://yourname.github.io/（比如我的https://sybapp.github.io）" target="_blank" rel="noopener">http://yourname.github.io/（比如我的https://sybapp.github.io）</a> 进入你的博客了，如果你绑定了域名，也可以通过域名访问。</p>
+<h2 id="Hexo-常用命令"><a href="#Hexo-常用命令" class="headerlink" title="Hexo 常用命令"></a>Hexo 常用命令</h2><p>Hexo 常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span> <span class="comment"># 查看帮助</span></span><br><span class="line">hexo clean <span class="comment"># 清除缓存</span></span><br><span class="line">hexo version <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
+<p>缩写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+<p>组合命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>
+<h1 id="遇到的困难"><a href="#遇到的困难" class="headerlink" title="遇到的困难"></a>遇到的困难</h1><ul>
+<li>右上角logo无法加载，由于能力不足，最终通过修改 <code>main.css</code> 隐藏。</li>
+</ul>
+<h1 id="引用参考"><a href="#引用参考" class="headerlink" title="引用参考"></a>引用参考</h1><p>感谢 52pojie @尾叶, 好记博客博主 @小茗同学</p>
+<p><code>http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa</code></p>
+<p><code>https://www.52pojie.cn/thread-688487-1-1.html</code></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>可参考 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官方文档</a> 进行 Hexo 博客的高阶学习。<br>这里的博客都是自己平时学习的笔记，难免会有错误和疏漏。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-20</span><i class="fa fa-tag"></i><a class="tag" href="/tags/建站/" title="建站">建站 </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://sybapp.tk/2018/05/20/本站搭建过程/,不将就 | 一个计算机小白的博客,本站搭建过程,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2018/05/23/星空表白网页/" title="星空表白网页">上一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

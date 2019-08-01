@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="孙远博, sybapp@qq.com"><title>安卓开发代码规范 · 不将就 | 一个计算机小白的博客</title><meta name="description" content="目录
+1.命名基本原则 
+2.命名基本规范
+2.1编程基本命名规范
+2.2分类命名规范
+3.分类命名规范
+3.1基本数据类型命名规范
+3.2控件命名规范
+3.3变量命名规范
+3.4整个项目的目录规范化
+3.4 res资源文件命名规范
+4.代码书写规范 
+5.注释
+6.提高代码质量
+7.设计模式（De"><meta name="keywords" content="Hexo, HTML, CSS, Android, Linux, WEB"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">不将就 | 一个计算机小白的博客</a></h3><div class="description"><p>一个计算机小白的博客 C / Python / Android / Linux / WEB</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/ansgsy"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/sybapp"><i class="fa fa-github"></i></a></li></ul><div class="footer"><div class="by_farbox"><a href="https://sybapp.tk/" target="_blank">&#169 2018 不将就 All rights reserved. &#160;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>安卓开发代码规范</a></h3></div><div class="post-content"><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h1><ul>
+<li><strong>1.命名基本原则</strong> </li>
+<li><strong>2.命名基本规范</strong></li>
+<li><strong>2.1编程基本命名规范</strong></li>
+<li><strong>2.2分类命名规范</strong></li>
+<li><strong>3.分类命名规范</strong></li>
+<li><strong>3.1基本数据类型命名规范</strong></li>
+<li><strong>3.2控件命名规范</strong></li>
+<li><strong>3.3变量命名规范</strong></li>
+<li><strong>3.4整个项目的目录规范化</strong></li>
+<li><strong>3.4 res资源文件命名规范</strong></li>
+<li><strong>4.代码书写规范</strong> </li>
+<li><strong>5.注释</strong></li>
+<li><strong>6.提高代码质量</strong></li>
+<li><strong>7.设计模式（Design Patterns）</strong></li>
+</ul>
+<h1 id="1-命名基本原则"><a href="#1-命名基本原则" class="headerlink" title="1.命名基本原则"></a><strong>1.命名基本原则</strong></h1><p>​    在面向对象编程中，对于类，对象，方法，变量等方面的命名是非常有技巧的。比如，大小写的区分，使用不同字母开头等等。但究其本，追其源，在为一个资源其名称的时候，应该本着描述性以及唯一性这两大特征来命名，才能保证资源之间不冲突，并且每一个都便于记忆。</p>
+<p>对于理解应用程序的逻辑流，命名方案是最有影响力的一种帮助。名称应该说明“什么”而不是“如何”。命名原则是：使名称足够长以便有一定的意义，并且足够短以避免冗长。唯一名称在编程上仅用于将各项区分开。以下几点是规范的命名方法。 </p>
+<h1 id="2-命名基本规范"><a href="#2-命名基本规范" class="headerlink" title="2.命名基本规范"></a><strong>2.命名基本规范</strong></h1><h2 id="2-1编程基本命名规范"><a href="#2-1编程基本命名规范" class="headerlink" title="2.1编程基本命名规范"></a><strong>2.1编程基本命名规范</strong></h2><ol>
+<li>避免难懂的名称，如属性名xxK8，这样的名称会导致多义性。   </li>
+<li>在面向对象的语言中，在类属性的名称中包含类名是多余的，如Book.BookTitle，而是应该使用Book.Title</li>
+<li>在允许函数重载的语言中，所有重载都应该执行相似的函数。 </li>
+<li>使用动词-名词的方法来命名对给定对象执行特定操作的例程，如CalculateInvoiceTotal()。（例程是某个系统对外提供的功能接口或服务的集合）   </li>
+<li>只要合适，在变量名的末尾或开头加计算限定符（Avg、Sum、Min、Max、Index）。 </li>
+<li>在变量名中使用互补对，如min/max、begin/end和open/close。  </li>
+<li>布尔变量名应该包含Is，这意味着Yes/No 或 True/False 值，如 fileIsFound。   </li>
+<li>即使对于可能仅出现在几个代码行中的生存期很短的变量，仍然使用有意义的名  称。仅对于短循环索引使用单字母变量名，如 i 或 j。   </li>
+<li>为了帮助区分变量和例程，对例程名称使用Pascal大小写处理 (CalculateInvoiceTotal)，其中每个单词的第        一个字母都是大写的。对于变量名，使用 camel大小写处理 (documentFormatType)，其中除了第一个单词外每个单词的第一个字母都是大写的。   </li>
+<li><p>不要使用原义数字或原义字符串，而是使用命名常数，NUM_DAYS_IN_WEEK ，以便于维护和理解。  </p>
+<h2 id="2-2分类命名规范"><a href="#2-2分类命名规范" class="headerlink" title="2.2分类命名规范"></a><strong>2.2分类命名规范</strong></h2></li>
+</ol>
+<ul>
+<li><p>包的命名 　 </p>
+<p>　　Java包的名字都是由小写单词组成。但是由于Java面向对象编程的特性，每一名Java程序员都可以编写属于自己的Java包，为了保障每个Java包命名的唯一性，在最新的Java编程规范中，要求程序员在自己定义的包的名称之前加上唯一的前缀。由于互联网上的域名称是不会重复的，所以程序员一般采用自己在互联网上的域名称作为自己程序包的唯一前缀。 </p>
+<p>　　例如： com.pccb.app</p>
+</li>
+<li><p>类的命名 </p>
+<p>　　 类的名字必须由大写字母开头而单词中的其他字母均为小写；如果类名称由多个单词组成，则每个单词的首字母均应为大写例如TestPage；如果类名称中包含单词缩写，则这个所写词的每个字母均应大写，如：XMLExample,还有一点命名技巧就是由于类是设计用来代表对象的，所以在命名类时应尽量选择名词。 　　</p>
+<p>　　例如： Circle </p>
+</li>
+<li><p>方法的命名 </p>
+<p>　　方法的名字的第一个单词应以小写字母作为开头，后面的单词则用大写字母开头。</p>
+<p>　　例如： sendMessge </p>
+</li>
+<li><p>常量的命名 </p>
+<p>　　常量的名字应该都使用大写字母，并且指出该常量完整含义。如果一个常量名称由多个单词组成，则应该用下划线来分割这些单词。</p>
+<p>　　例如： MAX_VALUE</p>
+</li>
+<li><p>参数的命名 </p>
+<p>参数的命名规范和方法的命名规范相同，而且为了避免阅读程序时造成迷惑，请在尽量保证参数名称为一个单词的情况下使参数的命名尽可能明确。 </p>
+<p>私有属性：private int mAge;</p>
+<p>静态变量：static String sName;</p>
+<p>函数内部变量：int  _Age;</p>
+<p>方法定义时的形参：int pAge;</p>
+</li>
+<li><p>Javadoc注释 </p>
+<p>　　Java除了可以采用我们常见的注释方式之外，Java语言规范还定义了一种特殊的注释，也就是我们所说的Javadoc注释，它是用来记录我们代码中的API的。Javadoc注释是一种多行注释，以/*<em>开头，而以</em>/结束，注释可以包含一些HTML标记符和专门的关键词。使用Javadoc注释的好处是编写的注释可以被自动转为在线文档，省去了单独编写程序文档的麻烦。</p>
+<p>　　例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* This is an example of</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* Javadoc</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> darchon</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* <span class="doctag">@version</span> 0.1, 10/11/2002</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在每个程序的最开始部分，一般都用Javadoc注释对程序的总体描述以及版权信息，之后在主程序中可以为每个类、接口、方法、字段添加Javadoc注释，每个注释的开头部分先用一句话概括该类、接口、方法、字段所完成的功能，这句话应单独占据一行以突出其概括作用，在这句话后面可以跟随更加详细的描述段落。在描述性段落之后还可以跟随一些以Javadoc注释标签开头的特殊段落，例如上面例子中的@auther和@version，这些段落将在生成文档中以特定方式显示。</p>
+<p>虽然为一个设计低劣的程序添加注释不会使其变成好的程序，但是如果按照编程规范编写程序并且为程序添加良好的注释却可以帮助你编写出设计完美，运行效率高且易于理解的程序，尤其是在多人合作完成同一项目时编程规范就变得更加重要。俗话说“磨刀不误砍柴工”，花费一点时间去适应一下Java编程规范是有好处的。</p>
+<h1 id="3-分类命名规范"><a href="#3-分类命名规范" class="headerlink" title="3.分类命名规范"></a><strong>3.分类命名规范</strong></h1><h2 id="3-1基本数据类型命名规范"><a href="#3-1基本数据类型命名规范" class="headerlink" title="3.1基本数据类型命名规范"></a>3.1基本数据类型命名规范</h2><p>Integer：int+描述          Char：chr+描述          Boolean：bln+描述 </p>
+<p>Long：lng+描述           Short：shr +描述         Double：dbl+描述</p>
+<p>String：str+描述           Float：flt+描述          Single：sng+描述</p>
+<p>DataTime：dt+描述         Array：arr+描述        Object：obj+描述     </p>
+<p>如：String  srtName;</p>
+<h2 id="3-2控件命名规范"><a href="#3-2控件命名规范" class="headerlink" title="3.2控件命名规范"></a><strong>3.2控件命名规范</strong></h2><table>
+<thead>
+<tr>
+<th>TextView ：txt_+描述</th>
+<th>Button ：btn_+描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ImageButton ：imgBtn_+描述</td>
+<td>ImageView ：imgView_+描述</td>
+</tr>
+<tr>
+<td>CheckBox ：chk_+描述</td>
+<td>RadioButton ：rdoBtn_+描述</td>
+</tr>
+<tr>
+<td>AnalogClock ：anaClk_+描述</td>
+<td>DigitalClock ：DgtClk_+描述</td>
+</tr>
+<tr>
+<td>DatePicker ：dtPk_+描述</td>
+<td>TimePicker ：tmPk _+描述</td>
+</tr>
+<tr>
+<td>ToggleButton ：tglBtn_+描述</td>
+<td>EditText：edtTxt_+描述</td>
+</tr>
+<tr>
+<td>ProgressBar：lcb_+描述</td>
+<td>SeekBar：skBar _+描述</td>
+</tr>
+<tr>
+<td>AutoCompleteTextView：autoTxt_+描述</td>
+<td>MultiAutoCompleteTextView：mlAutoTxt_+描述</td>
+</tr>
+<tr>
+<td>ZoomControls：zmCtrl_+描述</td>
+<td>Include：ind_+描述</td>
+</tr>
+<tr>
+<td>VideoView：vdoVi_+描述</td>
+<td>WebView：webVi_+描述</td>
+</tr>
+<tr>
+<td>RatingBar：ratBar_+描述</td>
+<td>Tab：tab__+描述</td>
+</tr>
+<tr>
+<td>Spinner：spn_+描述</td>
+<td>Chronometer：Cmt_+描述</td>
+</tr>
+<tr>
+<td>ScrollView：sclVi_+描述</td>
+<td>TextSwitcher：txtSwt_+描述</td>
+</tr>
+<tr>
+<td>Gallery：gal_+描述</td>
+<td>ImageSwitcher：imgSwt_+描述</td>
+</tr>
+<tr>
+<td>GridView：gV_+描述</td>
+<td>ListView：lVi_+描述</td>
+</tr>
+<tr>
+<td>ExpandableList: epdLt_+描述</td>
+<td>MapView: mapVi_+描述</td>
+</tr>
+</tbody>
+</table>
+<p>控件说明如下：</p>
+<p>• TextView - 文本显示控件</p>
+<p>• Button - 按钮控件</p>
+<p>• ImageButton - 图片按钮控件</p>
+<p>• ImageView - 图片显示控件</p>
+<p>• CheckBox - 复选框控件</p>
+<p>• RadioButton - 单选框控件</p>
+<p>• AnalogClock - 钟表（带表盘的那种）控件</p>
+<p>• DigitalClock - 电子表控件</p>
+<p>• DatePicker - 日期选择控件</p>
+<p>• TimePicker - 时间选择控件</p>
+<p>• ToggleButton - 双状态按钮控件</p>
+<p>• EditText - 可编辑文本控件</p>
+<p>• ProgressBar - 进度条控件</p>
+<p>• SeekBar - 可拖动的进度条控件</p>
+<p>• AutoCompleteTextView - 支持自动完成功能的可编辑文本控件</p>
+<p>• MultiAutoCompleteTextView - 支持自动完成功能的可编辑文本控件，允许输入多值（多值之间会自动地用指定的分隔符    分开）</p>
+<p>• ZoomControls - 放大/缩小按钮控件</p>
+<p>• Include - 整合控件</p>
+<p>• VideoView - 视频播放控件</p>
+<p>• WebView - 浏览器控件</p>
+<p>• RatingBar - 评分控件</p>
+<p>• Tab - 选项卡控件</p>
+<p>• Spinner - 下拉框控件</p>
+<p>• Chronometer - 计时器控件</p>
+<p>• ScrollView - 滚动条控件</p>
+<p>• TextSwitcher - 文字转换器控件（改变文字时增加一些动画效果）</p>
+<p>• Gallery –画廊控件</p>
+<p>• ImageSwitcher - 图片转换器控件（改变图片时增加一些动画效果）</p>
+<p>• GridView - 网格控件</p>
+<p>• ListView - 列表控件</p>
+<p>• ExpandableList - 支持展开/收缩功能的列表控件        </p>
+<h2 id="3-3变量命名规范"><a href="#3-3变量命名规范" class="headerlink" title="3.3变量命名规范"></a><strong>3.3变量命名规范</strong></h2><p>变量命名：前缀+类型描述+意义描述</p>
+<p>前缀：</p>
+<p>成员变量：m_***             局部变量：l__***          形参：a_***</p>
+<p>常量：大写<em>***                  枚举值：em\</em>***</p>
+<h2 id="3-4整个项目的目录规范化"><a href="#3-4整个项目的目录规范化" class="headerlink" title="3.4整个项目的目录规范化"></a><strong>3.4整个项目的目录规范化</strong></h2><p>1、系统目录规范：</p>
+<p>　　指项目目录中不仅包括源代码，还需要包括：需求相关文档、设计文档、计划日志文档、测试文档、项目进行中学习资料文档（参考Demo）；使整个项目更加清晰，</p>
+<p>2、源代码目录规范：</p>
+<p>一般系统命名空间目录尽量不要超过3层，[组织名].[项目名].[模块名]：com.pccb.app</p>
+<h2 id="3-5-res资源文件命名"><a href="#3-5-res资源文件命名" class="headerlink" title="3.5 res资源文件命名"></a><strong>3.5 res资源文件命名</strong></h2><p> 1,res/layout下的xml文件统一用小写和下划线”_”组合命名，并加上前缀以便区分 </p>
+<p>正例：</p>
+<p>对话框的xml配置文件:dlg_name.xml</p>
+<p> 2.layout中的id采用以下命名模式： view缩写_模块名称_view的逻辑名称</p>
+<p>​     说明：view的缩写详情如下 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ListView： lv </span><br><span class="line"></span><br><span class="line">RelativeView: rv </span><br><span class="line"></span><br><span class="line">TextView: tv </span><br><span class="line"></span><br><span class="line">ImageView: iv</span><br><span class="line"></span><br><span class="line"> ImageButton: ib  / ibtn</span><br><span class="line"></span><br><span class="line">Button:  btn</span><br></pre></td></tr></table></figure>
+<p>正例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@＋id/lv_appstore_applist</span><br></pre></td></tr></table></figure>
+<p>反例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@+id/ListView01</span><br></pre></td></tr></table></figure>
+<p> 3.activity文中的view变量采用以下命名模式： 逻辑名称_view缩写</p>
+<p>   正例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ListViewapplistLv</span><br></pre></td></tr></table></figure>
+<p> 4.res/drawable下的资源文件采用以下命名模式：  activity名称<em>逻辑名称/common</em>逻辑名称</p>
+<p>   正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main_default.png,main_pressed.png</span><br></pre></td></tr></table></figure>
+<p> 5.strings.xml中的id采用以下命名模式： activity名称<em>功能模块名称</em>逻辑名称/activity名称<em>逻辑名称/common</em>逻辑名称</p>
+<p>   正例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;string name=”main_downloading”&gt;正在下载&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+<p> 6.字符串信息应统一在strings.xml中定义，调试信息除外</p>
+<p> 7.使用日志时，不重要的信息定义在debug等级或者info等级，较为严重的情况把日志定义的warn等级和error等级。正常情况下尽量不使用<code>System.out.println();</code> 作为日志的输出.</p>
+<h1 id="4-代码书写规范"><a href="#4-代码书写规范" class="headerlink" title="4.代码书写规范"></a><strong>4.代码书写规范</strong></h1><p>（1）建立标准的缩进大小（如四个空格），并一致地使用此标准。用规定的缩进对齐代码节。<br>（2）在括号对对齐的位置垂直对齐左括号和右括号，如：   </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for   (i=0; i&lt;100; i++) </span><br><span class="line"></span><br><span class="line">  &#123; </span><br><span class="line"></span><br><span class="line">        ; </span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>（3）沿逻辑结构行缩进代码使代码更易于阅读和理解，如：   </p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">if(expression) </span><br><span class="line"></span><br><span class="line">         &#123; </span><br><span class="line"></span><br><span class="line">         if(expression ) </span><br><span class="line"></span><br><span class="line">          &#123; </span><br><span class="line"></span><br><span class="line">            // </span><br><span class="line"></span><br><span class="line">            //此处填写你的代码块; </span><br><span class="line"></span><br><span class="line">            // </span><br><span class="line"></span><br><span class="line">          &#125; </span><br><span class="line"></span><br><span class="line">         else </span><br><span class="line"></span><br><span class="line">          &#123; </span><br><span class="line"></span><br><span class="line">            // </span><br><span class="line"></span><br><span class="line">            //此处填写你的代码块; </span><br><span class="line"></span><br><span class="line">            // </span><br><span class="line"></span><br><span class="line">          &#125; </span><br><span class="line"></span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<p>（4）为注释和代码建立最大的行长度，以避免不得不滚动源代码编辑器，并且可以提供整齐的硬拷贝表示形式。     </p>
+<p>（5）当一行内容太长而必须换行时，在后面换行代码中要使用缩进格式，如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string   inserString =”Insert   Into   TableName(username,password,email,sex,address) ” </span><br><span class="line"></span><br><span class="line">   +”Values( ‘Soholife ’, ‘chenyp ’, ‘soholife@sina.com ’, ‘male ’, ’深圳福田 ’) ”;</span><br></pre></td></tr></table></figure>
+<p>（6）每一行上放置的语句避免超过一条。特殊循环如<code>for(i =0;i&lt;100;i++)</code> 等除外。<br>（7）编写SQL语句时，对于关键字使用全部大写，对于数据库元素（如表、列和视图）使用大小写混合。例如<code>SELECT * FROM Table1；</code><br>（8）将每个主要的SQL子句放在不同的行上，这样更容易阅读和编辑语句，例如：   </p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT   FirstName,   LastName </span><br><span class="line"></span><br><span class="line">   FROM     Customers </span><br><span class="line"></span><br><span class="line">   WHERE   State   =   ‘WA ’</span><br></pre></td></tr></table></figure>
+<p>（10）使用空白为源代码提供结构线索。这样做会创建代码“段”，有助于读者理解软件的逻辑分段<br>（11）将大的复杂代码段分为较小的、易于理解的模块。   </p>
+<h1 id="5-注释"><a href="#5-注释" class="headerlink" title="5.注释"></a><strong>5.注释</strong></h1><p>​     软件文档以两种形式存在：外部的和内部的。外部文档（如规范、帮助文件和设计文档）在源代码的外部维护。内部文档由开发人员在开发时在源代码中编写的注释组成。<br>     不考虑外部文档的可用性，由于硬拷贝文档可能会放错地方，源代码清单应该能够独立存在。外部文档应该由规范、设计文档、更改请求、错误历史记录和使用的编码标准组成。   以下几点是规范的注释方法：   </p>
+<p>（1）一个工程应有一个统一的头文件注释，以说明整个工程的信息、创建日期、版本等等     </p>
+<p>（2）对重要的程序加注释进行说明</p>
+<p>（3）修改代码或删除时，将原代码用注释的方法屏蔽，同时要加开发者自身对修改操作的注释。格式为：</p>
+<p>//原代码</p>
+<p>//Added/（Modified/ Deleted） by 开发者姓名 年-月-日;</p>
+<p>//因为业务原因修改的，要注明修改或删除原因）</p>
+<p>新代码<br>（4）使用XML文档格式，如下面方法的注释：<br>  &lt;!– 注释内容 –&gt;</p>
+<p>（5）避免杂乱的注释，而是应该使用空白将注释同代码分开。<br>（6）移除所有临时或无关的注释，以避免在日后的维护工作中产生混乱。<br>（7）注释应对代码进行准确的说明，不应存在歧义。<br>（8）在整个应用程序中，使用具有一致的标点和结构的统一样式来构造注释。   </p>
+<p>（9）方法注释的内容（1，5，6，7项正常情况下都要写上去）  </p>
+<p> 1.类该方法是做什么的。</p>
+<p> 2.该方法如何工作。</p>
+<p> 3.代码修改历史纪录。 </p>
+<p> 4.方法调用代码示范。 </p>
+<p> 5.必须传入什么样的参数给这个方法。@param </p>
+<p> 6.异常处理。@throws </p>
+<p> 7.这个方法返回什么。@return</p>
+<p>#<strong>6.提高代码质量</strong></p>
+<p>（1）删除无用的变量</p>
+<p>（2）删除无用的引入 </p>
+<p>（3）对于可以复用的部分，一定提取成共用的方法，减少代码量</p>
+<p>（4）变量/方法命名一定要符合清晰易懂，不用太在乎长度</p>
+<p>（5）代码完成后，进行code review，减少出错几率 </p>
+<p> (6)  用适合的方式尽量去思考设计模式方式来进行开发</p>
+<h1 id="7-设计模式（Design-Patterns）——可复用面向对象软件的基础"><a href="#7-设计模式（Design-Patterns）——可复用面向对象软件的基础" class="headerlink" title="7.设计模式（Design Patterns）——可复用面向对象软件的基础"></a><strong>7.设计模式（Design Patterns）——可复用面向对象软件的基础</strong></h1><p>   设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理的运用设计模式可以完美的解决很多问题，每种模式在现在中都有相应的原理来与之对应，每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是它能被广泛应用的原因。</p>
+<p>   一个程序员对设计模式的理解:<br>      “不懂”为什么要把很简单的东西搞得那么复杂。后来随着软件开发经验的增加才开始明白我所看到的“复杂”恰恰就是设计模式的精髓所在，我所理解的“简单”就是一把钥匙开一把锁的模式，目的仅仅是着眼于解决现在的问题，而设计模式的“复杂”就在于它是要构造一个“万能钥匙”，目的是提出一种对所有锁的开锁方案。在真正理解设计模式之前我一直在编写“简单”的代码.<br>    这个“简单”不是功能的简单，而是设计的简单。简单的设计意味着缺少灵活性，代码很钢硬，只在这个项目里有用，拿到其它的项目中就是垃圾，我将其称之为“一次性代码”。</p>
+<p>​    –&gt;要使代码可被反复使用,请用’设计模式’对你的代码进行设计.</p>
+<p>很多我所认识的程序员在接触到设计模式之后，都有一种相见恨晚的感觉，有人形容学习了设计模式之后感觉自己好像已经脱胎换骨，达到了新的境界，还有人甚至把是否了解设计模式作为程序员划分水平的标准。</p>
+<p>我们也不能陷入模式的陷阱，为了使用模式而去套模式，那样会陷入形式主义。我们在使用模式的时候，一定要注意模式的意图（intent），而不 要过多的去关注模式的实现细节，因为这些实现细节在特定情况下，可能会发生一些改变。不要顽固地认为设计模式一书中的类图或实现代码就代表了模式本身。</p>
+<h2 id="设计原则：-重要"><a href="#设计原则：-重要" class="headerlink" title="设计原则：(重要)"></a><strong>设计原则：(重要)</strong></h2><p>​    1.逻辑代码独立到单独的方法中，注重封装性–易读，易复用。<br>不要在一个方法中，写下上百行的逻辑代码。把各小逻辑代码独立出来，写于其它方法中，易读其可重复调用。<br>    2.写类，写方法，写功能时，应考虑其移植性，复用性：防止一次性代码！<br>是否可以拿到其它同类事物中应该？是否可以拿到其它系统中应该？<br>    3.熟练运用继承的思想：<br>找出应用中相同之处，且不容易发生变化的东西，把它们抽取到抽象类中，让子类去继承它们；<br>继承的思想，也方便将自己的逻辑建立于别人的成果之上。如ImageField extends JTextField；<br>熟练运用接口的思想：<br>找出应用中可能需要变化之处，把它们独立出来，不要和那些不需要变化的代码混在一起。</p>
+<h2 id="设计模式："><a href="#设计模式：" class="headerlink" title="设计模式："></a><strong>设计模式</strong>：</h2><p>​    1.java的23中设计模式 </p>
+<p>​    2.MVC模式 </p>
+<p>​    3.MVP 模式</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/zmken497300/article/details/52770364" target="_blank" rel="noopener"><strong>转载自CSDN</strong></a></p>
+</blockquote>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-25</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Android/" title="Android">Android </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,https://sybapp.tk/2018/05/25/安卓开发代码规范/,不将就 | 一个计算机小白的博客,安卓开发代码规范,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2018/05/27/Button-及点击事件/" title="Button 及点击事件">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/05/23/星空表白网页/" title="星空表白网页">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
